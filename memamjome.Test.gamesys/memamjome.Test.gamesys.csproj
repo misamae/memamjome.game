@@ -52,7 +52,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Series\SeriesGeneratorFacadeTest.cs" />
-    <Compile Include="SpeicalNumbers\NthSpecialNumberTests.cs" />
+    <Compile Include="SpeicalNumbers\SpecialNumberTests.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

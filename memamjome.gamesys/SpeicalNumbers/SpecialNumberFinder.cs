@@ -3,11 +3,11 @@ using memamjome.gamesys.Series;
 
 namespace memamjome.gamesys.SpeicalNumbers
 {
-    public class NthSpecialNumberFinder
+    public class SpecialNumberFinder
     {
         private readonly SeriesGeneratorFacade _generator;
 
-        public NthSpecialNumberFinder(SeriesGeneratorFacade generator)
+        public SpecialNumberFinder(SeriesGeneratorFacade generator)
         {
             _generator = generator;
         }

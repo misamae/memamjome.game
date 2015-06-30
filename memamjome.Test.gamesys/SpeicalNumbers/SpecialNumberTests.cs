@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace memamjome.Test.gamesys.SpeicalNumbers
 {
     [TestClass]
-    public class NthSpecialNumberTests
+    public class SpecialNumberTests
     {
         [TestMethod]
         public void Get3rdLargetNumber()
@@ -14,7 +14,7 @@ namespace memamjome.Test.gamesys.SpeicalNumbers
             const double x = 1.0;
             const double y = 5062.5;
 
-            var finder = new NthSpecialNumberFinder(new SeriesGeneratorFacade());
+            var finder = new SpecialNumberFinder(new SeriesGeneratorFacade());
 
             var specialNumber = finder.GetNthLargetNumber(x, y, 5, 3);
 
@@ -28,7 +28,7 @@ namespace memamjome.Test.gamesys.SpeicalNumbers
             const double x = 1.0;
             const double y = 5062.5;
 
-            var finder = new NthSpecialNumberFinder(new SeriesGeneratorFacade());
+            var finder = new SpecialNumberFinder(new SeriesGeneratorFacade());
 
             var specialNumber = finder.GetNthLargetNumber(x, y, 5, 5);
 
@@ -42,7 +42,7 @@ namespace memamjome.Test.gamesys.SpeicalNumbers
             const double x = 1.0;
             const double y = 5062.5;
 
-            var finder = new NthSpecialNumberFinder(new SeriesGeneratorFacade());
+            var finder = new SpecialNumberFinder(new SeriesGeneratorFacade());
 
             var specialNumber = finder.GetNthLargetNumber(x, y, 5, 0);
 

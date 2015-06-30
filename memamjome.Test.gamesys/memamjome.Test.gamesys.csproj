@@ -51,11 +51,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Series\SeriesGeneratorTest.cs" />
+    <Compile Include="Series\SeriesGeneratorFacadeTest.cs" />
+    <Compile Include="SpeicalNumbers\NthSpecialNumberTests.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\memamjome.gamesys\memamjome.gamesys.csproj">
       <Project>{610750de-929d-42e6-b050-2f75a2ec2ae2}</Project>

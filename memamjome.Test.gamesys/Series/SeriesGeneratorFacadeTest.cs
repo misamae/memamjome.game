@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using memamjome.gamesys.Exceptions;
 using memamjome.gamesys.Series;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -11,7 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace memamjome.Test.gamesys.Series
 {
     [TestClass]
-    public class SeriesGeneratorTest
+    public class SeriesGeneratorFacadeTest
     {
         [TestMethod]
         public void Generate_Lenght0_ShouldGenerateEmptySeries()

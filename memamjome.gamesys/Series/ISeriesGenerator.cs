@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace memamjome.gamesys.Series
 {
-    public interface ISeriesGenerator
+    interface ISeriesGenerator
     {
         IEnumerable<double> Generate(double x, double y);
     }

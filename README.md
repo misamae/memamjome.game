@@ -24,4 +24,5 @@ There is a corner case when series cannot be easily generated. That is when x0 =
 Solving this gives the root of as 
 
 x0 = ± Sqrt(930) - 30
+
 x0 = ± Sqrt(830) - 30

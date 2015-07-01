@@ -10,15 +10,14 @@ namespace memamjome.Test.gamesys.Series
     [TestClass]
     public class SeriesGeneratorFacadeTest
     {
+        private static readonly SeriesPayLoad TestPayLoad = new SeriesPayLoad(1.0, 5062.5);
+
         [TestMethod]
         public void Generate_Lenght0_ShouldGenerateEmptySeries()
         {
-            const double x = 1.0;
-            const double y = 5062.5;
-
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 0);
+            var series = generator.Generate(TestPayLoad, 0);
 
             DiagnoseSeries(series);
             Assert.IsNotNull(series);
@@ -28,12 +27,9 @@ namespace memamjome.Test.gamesys.Series
         [TestMethod]
         public void Generate_Length5_ShouldGenerateFiveNumbers()
         {
-            const double x = 1.0;
-            const double y = 5062.5;
-
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 5);
+            var series = generator.Generate(TestPayLoad, 5);
 
             DiagnoseSeries(series);
             Assert.IsNotNull(series);
@@ -43,12 +39,9 @@ namespace memamjome.Test.gamesys.Series
         [TestMethod]
         public void Generate_Length5_FirstNumberShouldBeSetToFirstNumberRounded()
         {
-            const double x = 1.0;
-            const double y = 5062.5;
-
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 5).ToList();
+            var series = generator.Generate(TestPayLoad, 5).ToList();
 
             var firstNumber = series.ElementAt(0);
 
@@ -58,12 +51,9 @@ namespace memamjome.Test.gamesys.Series
         [TestMethod]
         public void Generate_Length5_ShouldGenerateNumbersRounded()
         {
-            const double x = 1.0;
-            const double y = 5062.5;
-
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 5).ToList();
+            var series = generator.Generate(TestPayLoad, 5).ToList();
 
             DiagnoseSeries(series);
             Assert.AreEqual(1.5, series[0]);
@@ -80,12 +70,11 @@ namespace memamjome.Test.gamesys.Series
         [ExpectedException(typeof(InvalidSeriesException))]
         public void Generate_XIsFirstRootOfFirstNumberGenerator_ThrowsInvalidOperationException()
         {
-            const double x = -60.49590136;
-            const double y = 1250.0;
+            var payload = new SeriesPayLoad(-60.49590136, 1250.0);
 
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 5).ToList();
+            generator.Generate(payload, 5).ToList();
         }
 
         /// <summary>
@@ -95,12 +84,11 @@ namespace memamjome.Test.gamesys.Series
         [ExpectedException(typeof(InvalidSeriesException))]
         public void Generate_XIsSecondRootOfFirstNumberGenerator_ThrowsInvalidOperationException()
         {
-            const double x = -58.80972058;
-            const double y = 1250.0;
+            var payload = new SeriesPayLoad(-58.80972058, 1250.0);
 
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 5).ToList();
+            generator.Generate(payload, 5).ToList();
         }
 
         /// <summary>
@@ -110,12 +98,11 @@ namespace memamjome.Test.gamesys.Series
         [ExpectedException(typeof(InvalidSeriesException))]
         public void Generate_XIsThirdRootOfFirstNumberGenerator_ThrowsInvalidOperationException()
         {
-            const double x = 0.495901364;
-            const double y = 1250.0;
+            var payload = new SeriesPayLoad(0.49590136, 1250.0);
 
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 5).ToList();
+            generator.Generate(payload, 5).ToList();
         }
 
         /// <summary>
@@ -125,23 +112,21 @@ namespace memamjome.Test.gamesys.Series
         [ExpectedException(typeof(InvalidSeriesException))]
         public void Generate_XIsForthRootOfFirstNumberGenerator_ThrowsInvalidOperationException()
         {
-            const double x = -1.190279418;
-            const double y = 1250.0;
+            var payload = new SeriesPayLoad(-1.190279418, 1250.0);
 
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 5).ToList();
+            generator.Generate(payload, 5).ToList();
         }
 
         [TestMethod]
         public void Generate_XGeneratesLessThanOneForFirstNumber_SeriesShouldBeSorted()
         {
-            const double x = -59;
-            const double y = 1250.0;
+            var payload = new SeriesPayLoad(-59, 1250.0);
 
             var generator = new SeriesGeneratorFacade();
 
-            var series = generator.Generate(x, y, 5).ToList();
+            var series = generator.Generate(payload, 5).ToList();
 
             DiagnoseSeries(series);
             Assert.IsTrue(series[0] < series[1]);

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace memamjome.gamesys.Series
 {
@@ -11,22 +12,21 @@ namespace memamjome.gamesys.Series
             _decorated = decorated;
         }
 
-        public IEnumerable<double> Generate(double x, double y)
+        public IEnumerable<double> Generate(SeriesPayLoad payload)
         {
             var set = new HashSet<double>();
-            var enumerator = _decorated.Generate(x, y).GetEnumerator();
+            var enumerator = _decorated.Generate(payload).GetEnumerator();
 
-            while(enumerator.MoveNext())
+            while (enumerator.MoveNext())
             {
                 var currentValue = enumerator.Current;
 
-                if(!set.Contains(currentValue))
+                if (!set.Contains(currentValue))
                 {
                     set.Add(currentValue);
                     yield return currentValue;
                 }
             }
-
         }
     }
 }

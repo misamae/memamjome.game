@@ -18,17 +18,17 @@ namespace memamjome.gamesys.Series
             return Math.Abs(x - y) < Common.MagicNumbers.Double2DigitCompareThreshold;
         }
 
-        public IEnumerable<double> Generate(double x, double y)
+        public IEnumerable<double> Generate(SeriesPayLoad payload)
         {
-            if (Compare(x, Common.MagicNumbers.X0Root01)
-                || Compare(x, Common.MagicNumbers.X0Root02)
-                || Compare(x, Common.MagicNumbers.X0Root03)
-                || Compare(x, Common.MagicNumbers.X0Root04))
+            if (Compare(payload.X, Common.MagicNumbers.X0Root01)
+                || Compare(payload.X, Common.MagicNumbers.X0Root02)
+                || Compare(payload.X, Common.MagicNumbers.X0Root03)
+                || Compare(payload.X, Common.MagicNumbers.X0Root04))
             {
                 throw new InvalidSeriesException();
             }
 
-            return _decorated.Generate(x, y);
+            return _decorated.Generate(payload);
         }
     }
 }

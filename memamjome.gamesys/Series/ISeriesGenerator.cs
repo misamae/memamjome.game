@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace memamjome.gamesys.Series
 {
     interface ISeriesGenerator
     {
-        IEnumerable<double> Generate(double x, double y);
+        IEnumerable<double> Generate(SeriesPayLoad payload);
     }
 }

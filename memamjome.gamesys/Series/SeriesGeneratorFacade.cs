@@ -7,11 +7,11 @@ namespace memamjome.gamesys.Series
     {
         private readonly SeriesGeneratorBuilder _seriesGeneratorBuilder = new SeriesGeneratorBuilder();
 
-        public IEnumerable<double> Generate(double x, double y, int count)
+        public IEnumerable<double> Generate(SeriesPayLoad payLoad, int count)
         {
             var generator = _seriesGeneratorBuilder.GetSeriesGenerator();
 
-            var series = generator.Generate(x, y).Take(count);
+            var series = generator.Generate(payLoad).Take(count);
 
             return series.OrderBy(d => d);
         }

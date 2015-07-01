@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace memamjome.gamesys.Series
 {
-    class SeriesGenerator : ISeriesGenerator, IEnumerable<double>
+    class SeriesGenerator : ISeriesGenerator
     {
         private static double GetFirstNumber(double x)
         {
@@ -15,10 +15,10 @@ namespace memamjome.gamesys.Series
             return y / (firstNumber * 1250.0);
         }
 
-        public IEnumerable<double> Generate(double x, double y)
+        public IEnumerable<double> Generate(SeriesPayLoad payload)
         {
-            var firstNumber = GetFirstNumber(x);
-            var growthRate = GetGrowthRate(y, firstNumber);
+            var firstNumber = GetFirstNumber(payload.X);
+            var growthRate = GetGrowthRate(payload.Y, firstNumber);
             var current = firstNumber;
 
             yield return firstNumber;
@@ -26,22 +26,12 @@ namespace memamjome.gamesys.Series
             current = firstNumber * growthRate;
             yield return current;
 
-            while(true)
+            while (true)
             {
                 var value = current * firstNumber;
                 yield return value;
                 current = value;
             }
-        }
-
-        public IEnumerator<double> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
         }
     }
 }

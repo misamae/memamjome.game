@@ -17,9 +17,9 @@ namespace memamjome.gamesys.Series
             return System.Math.Round(number * 4.0, System.MidpointRounding.ToEven) / 4.0;
         }
 
-        public IEnumerable<double> Generate(double x, double y)
+        public IEnumerable<double> Generate(SeriesPayLoad payload)
         {
-            return _decorated.Generate(x, y).Select(d => RoundDecimal25(d));
+            return _decorated.Generate(payload).Select(RoundDecimal25);
         }
     }
 }

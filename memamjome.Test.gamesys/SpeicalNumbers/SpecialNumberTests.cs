@@ -8,17 +8,15 @@ namespace memamjome.Test.gamesys.SpeicalNumbers
     [TestClass]
     public class SpecialNumberTests
     {
-        private static double ApproximateNumberConstant = 1000;
+        private const double ApproximateNumberConstant = 1000;
+        private static readonly SeriesPayLoad TestPayLoad = new SeriesPayLoad(1.0, 5062.5);
 
         [TestMethod]
-        public void Get3rdLargetNumber()
+        public void Get3RdLargetNumber()
         {
-            const double x = 1.0;
-            const double y = 5062.5;
-
             var finder = new SpecialNumberFinder(new SeriesGeneratorFacade(), ApproximateNumberConstant);
 
-            var specialNumber = finder.GetNthLargetNumber(x, y, 5, 3);
+            var specialNumber = finder.GetNthLargetNumber(TestPayLoad, 5, 3);
 
             Assert.AreEqual(6.5, specialNumber);
             Debug.WriteLine(specialNumber);
@@ -27,12 +25,9 @@ namespace memamjome.Test.gamesys.SpeicalNumbers
         [TestMethod]
         public void GetLastLargetNumber()
         {
-            const double x = 1.0;
-            const double y = 5062.5;
-
             var finder = new SpecialNumberFinder(new SeriesGeneratorFacade(), ApproximateNumberConstant);
 
-            var specialNumber = finder.GetNthLargetNumber(x, y, 5, 5);
+            var specialNumber = finder.GetNthLargetNumber(TestPayLoad, 5, 5);
 
             Assert.AreEqual(1.5, specialNumber);
             Debug.WriteLine(specialNumber);
@@ -41,12 +36,9 @@ namespace memamjome.Test.gamesys.SpeicalNumbers
         [TestMethod]
         public void GetLargetNumber()
         {
-            const double x = 1.0;
-            const double y = 5062.5;
-
             var finder = new SpecialNumberFinder(new SeriesGeneratorFacade(), ApproximateNumberConstant);
 
-            var specialNumber = finder.GetNthLargetNumber(x, y, 5, 0);
+            var specialNumber = finder.GetNthLargetNumber(TestPayLoad, 5, 0);
 
             Assert.AreEqual(17.25, specialNumber);
             Debug.WriteLine(specialNumber);
@@ -55,14 +47,11 @@ namespace memamjome.Test.gamesys.SpeicalNumbers
         [TestMethod]
         public void GetClosestSpecialNumber()
         {
-            const double x = 1.0;
-            const double y = 5062.5;
-
-            int z = 160;
+            const int z = 160;
 
             var finder = new SpecialNumberFinder(new SeriesGeneratorFacade(), ApproximateNumberConstant);
 
-            var specialNumber = finder.GetClosetSpecialNumber(x, y, 5, 160);
+            var specialNumber = finder.GetClosetSpecialNumber(TestPayLoad, 5, z);
 
             Assert.AreEqual(6.5, specialNumber);
         }

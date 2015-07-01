@@ -48,10 +48,13 @@
     <Compile Include="Series\SeriesGeneratorBuilder.cs" />
     <Compile Include="Series\SeriesGeneratorFacade.cs" />
     <Compile Include="Series\SeriesGuard.cs" />
+    <Compile Include="Series\SeriesPayLoad.cs" />
     <Compile Include="Series\SeriesRounderGenerator.cs" />
     <Compile Include="SpeicalNumbers\SpecialNumberFinder.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Common\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

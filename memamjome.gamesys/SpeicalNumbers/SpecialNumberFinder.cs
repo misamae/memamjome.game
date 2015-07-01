@@ -15,18 +15,18 @@ namespace memamjome.gamesys.SpeicalNumbers
             _approximateNumberConstant = approximateNumberConstant;
         }
 
-        public double GetNthLargetNumber(double x, double y, int count, int index)
+        public double GetNthLargetNumber(SeriesPayLoad payLoad, int count, int index)
         {
-            var series = _generator.Generate(x, y, count);
+            var series = _generator.Generate(payLoad, count);
 
             return index == 0
                 ? series.ElementAt(count - 1)
                 : series.ElementAt(count - index);
         }
 
-        public double GetClosetSpecialNumber(double x, double y, int count, double z)
+        public double GetClosetSpecialNumber(SeriesPayLoad payLoad, int count, double z)
         {
-            var series = _generator.Generate(x, y, count);
+            var series = _generator.Generate(payLoad, count);
             var approximateNumber = GetApproximateNumber(z);
 
             var deltas = series.Select((d, i) => new {index = i, diff = Math.Abs(d - approximateNumber)})

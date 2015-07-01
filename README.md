@@ -17,5 +17,11 @@ Assumptions:
 
 1. If x0 == 1 && (x0*g==1 || x0*g==-1) the series cannot be generated and InvalidSeriesException is thrown
 
-There is a corner case when series cannot be easily generated. That is when x0 = 1. 
+There is a corner case when series cannot be easily generated. That is when x0 = 1. This can be found with solving the first number equation 
 
+((0.5 * x^2) + (30 * x) + 10) / 25 = 1
+
+Solving this gives the root of as 
+
+x0 = ± Sqrt(930) - 30
+x0 = ± Sqrt(830) - 30

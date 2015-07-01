@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Exceptions\InvalidSeriesException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Series\Common\MagicNumbers.cs" />
     <Compile Include="Series\ISeriesGenerator.cs" />
     <Compile Include="Series\SeriesDeduplicator.cs" />
     <Compile Include="Series\SeriesGenerator.cs" />

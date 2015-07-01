@@ -17,3 +17,5 @@ Assumptions:
 
 1. If x0 == 1 && (x0*g==1 || x0*g==-1) the series cannot be generated and InvalidSeriesException is thrown
 
+There is a corner case when series cannot be easily generated. That is when x0 = 1. 
+

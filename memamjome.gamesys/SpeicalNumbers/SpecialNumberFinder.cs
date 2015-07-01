@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using memamjome.gamesys.Series;
 
 namespace memamjome.gamesys.SpeicalNumbers
@@ -28,15 +29,10 @@ namespace memamjome.gamesys.SpeicalNumbers
             var series = _generator.Generate(x, y, count);
             var approximateNumber = GetApproximateNumber(z);
 
-            foreach (var item in series)
-            {
-                if(item > approximateNumber)
-                {
+            var deltas = series.Select((d, i) => new {index = i, diff = Math.Abs(d - approximateNumber)})
+                .OrderBy(d => d.diff).ThenByDescending(d => d.index);
 
-                }
-            }
-
-            return 0;
+            return series.ElementAt(deltas.ElementAt(0).index);
         }
 
         private double GetApproximateNumber(double z)
